@@ -1,5 +1,5 @@
 class Solution {
-public:
+    private: 
     int binarySearchLeft(const vector<int> &nums, int target)
     {
         int low = 0,high = nums.size()-1;
@@ -45,7 +45,8 @@ public:
         return -1;
         
     }
-    
+public:
+       
     vector<int> searchRange(vector<int>& nums, int target) 
     {
         vector<int> v(2);
