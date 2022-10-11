@@ -7,7 +7,7 @@ public:
         
         for(int i=0;i<n;++i)
         {
-            x = x^nums[i];
+            x ^= nums[i];
         }
         return x;
         
