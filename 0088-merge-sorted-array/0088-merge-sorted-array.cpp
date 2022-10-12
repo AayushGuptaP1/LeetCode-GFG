@@ -9,24 +9,15 @@ public:
         while(i>=0 && j>=0)
         {
             if(nums1[i] > nums2[j])
-            {
-                nums1[target] = nums1[i];
-                --i;
-                --target;
-            }
+                nums1[target--] = nums1[i--];              
             else
-            {
-                nums1[target] = nums2[j];
-                --j;
-                --target;
-            }
-            
+                nums1[target--] = nums2[j--];                        
         }
+        
         while(j>=0)
         {
-            nums1[target] = nums2[j];
-            --target;
-            --j;
+            nums1[target--] = nums2[j--];
+            
         }
         
     }
