@@ -23,7 +23,7 @@ public:
             long long temp = 1;
             for(int j = queries[i][0]; j<= queries[i][1];j++)
             {
-               temp = ((temp%M)*(v[j]%M))%M;                 
+               temp = ((temp%M)*v[j])%M;                 
             }
             power[i] = temp;
               
