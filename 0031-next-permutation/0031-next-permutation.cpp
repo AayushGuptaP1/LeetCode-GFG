@@ -13,6 +13,7 @@ public:
         if(i<0)
         {
             reverse(nums.begin(),nums.end());
+            return ;
         }
         else
         {
