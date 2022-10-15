@@ -26,7 +26,6 @@ public:
                temp = ((temp%M)*v[j])%M;                 
             }
             power[i] = temp;
-              
         }
         return power;
     }
