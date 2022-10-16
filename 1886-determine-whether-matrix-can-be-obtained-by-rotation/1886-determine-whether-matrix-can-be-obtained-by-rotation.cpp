@@ -2,8 +2,8 @@ class Solution {
 public:
     bool findRotation(vector<vector<int>>& mat, vector<vector<int>>& target)
     {
-        bool c[4];
-	memset(c,true,sizeof(c));
+       vector<bool> c(4,true);
+	
 	int n=mat.size();
 	for(int i=0;i<n;i++)
 	{
