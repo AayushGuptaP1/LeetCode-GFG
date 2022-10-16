@@ -5,7 +5,7 @@ public:
         int minVal = prices[0];
         int profit = 0;
         
-        for(int i=1;i<n;i++)
+        for(int i=1;i<n;++i)
         {
             profit = max(profit, prices[i]- minVal);
             minVal = min(minVal, prices[i]);
