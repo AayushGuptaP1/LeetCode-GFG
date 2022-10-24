@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool isSubsequence(string s, string t) 
+    bool isSubsequence(string &s, string &t) 
     {
         int m = s.length();
         int n = t.length();
