@@ -3,13 +3,11 @@ public:
     bool checkString(string &s) 
     {
         int n = s.length();
-        bool flag = false;
         
-        for(int i=0;i<n;++i)
+        
+        for(int i=0;i<n-1;++i)
         {
-            if(s[i] == 'b')
-                flag = true;
-            if(flag && s[i] == 'a')
+            if(s[i] == 'b' && s[i+1] == 'a')               
                 return false;                
         }
         return true;
