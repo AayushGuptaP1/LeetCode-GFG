@@ -3,15 +3,14 @@ public:
     char repeatedCharacter(string &s) 
     {
         vector<int> v(26,0);
-        int n = s.size();
         
-        for(int i=0;i<n;++i)
+        
+        for(char c : s)
         {
-            if(v[s[i]-'a'] == 0)
-                v[s[i]-'a']++;
+            if(v[c-'a'] != 0)
+                return c;
             else
-                return s[i];
-                
+                v[c-'a']++;
         }
         return 'a';
         
