@@ -21,7 +21,7 @@ public:
            else
            special = true;
         }
-        return(lower&&upper&&digit&&special);
+        return(lower && upper && digit && special);
    
 
    
