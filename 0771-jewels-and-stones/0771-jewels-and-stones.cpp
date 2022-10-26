@@ -5,7 +5,7 @@ public:
         unordered_set<char>st(jewels.begin(),jewels.end());
         int count = 0;
         
-        for(char c : stones)
+        for(const char c : stones)
         {
             if(st.find(c) != st.end())
                 count++;
