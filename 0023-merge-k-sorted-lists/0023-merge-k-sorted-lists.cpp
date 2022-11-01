@@ -64,10 +64,11 @@ public:
     ListNode* mergeKLists(vector<ListNode*>& lists)
     {
         if(lists.empty())return nullptr;
-        while(lists.size()>1)
+        int n = lists.size();
+        for(int i=1; i<n;++i)
         {
-            lists[1] = mergeTwoLists(lists[0],lists[1]);
-            lists.erase(lists.begin());
+            lists[0] = mergeTwoLists(lists[0],lists[i]);
+           
         }
         return lists[0];
     }
