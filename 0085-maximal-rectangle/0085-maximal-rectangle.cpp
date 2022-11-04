@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    int maxHistogram(vector<int> histogram, int n)
+    int maxHistogram(vector<int> &histogram, int n)
     {
         int maxArea = 0;
         stack<int> st;
@@ -26,6 +26,7 @@ public:
         }
         return maxArea;
     }
+    
     int maximalRectangle(vector<vector<char>>& matrix) 
     {
         int n = matrix[0].size();
