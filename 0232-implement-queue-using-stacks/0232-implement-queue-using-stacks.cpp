@@ -12,10 +12,9 @@ public:
     
     int pop() 
     {
-        peek();
-        if(output.empty())
-            return -1;
-        int x = output.top();
+       int x = peek();
+        
+        
         output.pop();
         return x;
     }
