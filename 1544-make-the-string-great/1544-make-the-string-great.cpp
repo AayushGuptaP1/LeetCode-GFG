@@ -2,7 +2,7 @@ class Solution {
 public:
     bool isMatching(char &a, char &b)
     {
-        return ((a - 32 == b)||(a + 32 == b));
+        return abs(a-b)==32;
     }
     string makeGood(string s) 
     {
