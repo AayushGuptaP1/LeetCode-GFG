@@ -11,10 +11,11 @@ public:
         {
             res[i] = nums[i-1]*res[i-1];
         }
-        for(int i = n-1;i>=0;--i)
+        for(int i = n-2;i>=0;--i)
         {
+             postProd *= nums[i+1];
             res[i] *= postProd;
-            postProd *= nums[i];
+           
         }
         return res;
     }
