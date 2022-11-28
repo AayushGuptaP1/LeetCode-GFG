@@ -22,7 +22,7 @@ public:
     {
         if(l== NULL && r==NULL)
             return true;
-         if (l!= NULL && r!= NULL)
+         else if (l!= NULL && r!= NULL)
             return (l->val == r->val) && checkSymmetry(l->left,r->right) && checkSymmetry(l->right,r->left);
         else
             return false;
