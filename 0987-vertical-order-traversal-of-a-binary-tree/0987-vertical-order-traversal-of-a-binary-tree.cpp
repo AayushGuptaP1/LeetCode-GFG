@@ -11,13 +11,13 @@
  */
 class Solution {
 public:
-    vector<vector<int>> verticalTraversal(TreeNode* root)
+    vector<vector<int>> verticalTraversal(TreeNode* root) 
     {
         vector<vector<int>>res;
         if(root == NULL)
             return res;
         queue<pair<TreeNode*,pair<int,int>>>q;
-        map<int,map<int,multiset<int>>> nodes;
+        map<int,map<int,multiset<int>>>nodes;
         
         q.push({root,{0,0}});
         
@@ -28,22 +28,21 @@ public:
             TreeNode *temp = it.first;
             int x = it.second.first;
             int y = it.second.second;
-            
             nodes[x][y].insert(temp->val);
-            
-            if(temp->left != NULL)
+            if(temp->left)
                 q.push({temp->left,{x-1,y+1}});
-            if(temp->right != NULL)
+            if(temp->right)
                 q.push({temp->right,{x+1,y+1}});
         }
         
-        for(auto x : nodes)
+        for(auto &x : nodes)
         {
-            vector<int>col;
-            for(auto y : x.second)
+            vector<int> col;
+            for(auto &y : x.second)
                 col.insert(col.end(),y.second.begin(),y.second.end());
             res.push_back(col);
         }
         return res;
+        
     }
 };
