@@ -10,16 +10,16 @@ public:
     bool halvesAreAlike(string s) 
     {
         int  i =0, j = s.length()-1;
-        int left = 0, right = 0;
+        int res=0;
         
         while(i<j)
         {
             if(isVowel(s[i]))
-                left++;
+                res++;
             if(isVowel(s[j]))
-                right++;
+                res--;
             i++,j--;
         }
-        return left==right;
+        return res==0;
     }
 };
