@@ -20,7 +20,7 @@ public:
             return true;
         if(st.find(k-root->val)!= st.end())
         return true;
-        else
+        
         st.insert(root->val);
         return checkSum(root->right,k,st);
         
