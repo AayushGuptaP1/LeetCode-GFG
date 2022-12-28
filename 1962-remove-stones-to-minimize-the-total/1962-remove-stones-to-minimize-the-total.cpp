@@ -10,7 +10,7 @@ public:
         {
             int temp = pq.top();
             pq.pop();
-            temp -= floor(temp/2);
+            temp -= temp/2;
             pq.push(temp);
         }
         
