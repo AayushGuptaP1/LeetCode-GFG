@@ -12,11 +12,10 @@ public:
             if(lastArrow<points[i][0])
             {
                 ++arrows;
-                lastArrow = points[i][1];
+                lastArrow = points[i][1];                
             }
             else
-            lastArrow = min(lastArrow, points[i][1]); 
-                
+                lastArrow = min(lastArrow, points[i][1]);                 
         }
         return arrows;
     }
