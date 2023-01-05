@@ -14,7 +14,6 @@ public:
                 count++;
                 mini = points[i][1];
             }
-            else
             mini = min(mini, points[i][1]); 
                 
         }
