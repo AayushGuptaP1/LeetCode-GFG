@@ -10,19 +10,16 @@
  * };
  */
 class Solution {
-private:
-    bool checkBST(TreeNode *root,long low,long high)
+
+  
+    
+public:
+    bool isValidBST(TreeNode* root, long low = LONG_MIN, long high = LONG_MAX)
     {
         if(root == NULL)
             return true;
         if(root->val >= high || root->val <= low)
             return false;
-        return(checkBST(root->left,low,root->val) && checkBST(root->right,root->val,high));
-    }
-    
-public:
-    bool isValidBST(TreeNode* root)
-    {
-       return checkBST(root,LONG_MIN,LONG_MAX);        
+        return(isValidBST(root->left,low,root->val) && isValidBST(root->right,root->val,high));        
     }
 };
