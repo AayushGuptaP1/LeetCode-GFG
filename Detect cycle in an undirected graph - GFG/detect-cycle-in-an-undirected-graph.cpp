@@ -16,7 +16,7 @@ class Solution {
                 if(dfs(adj,visited,u,s))
                 return true;
             }
-            else if(u != parent )
+            else if(u != parent)
             return true;
         }
         return false;
