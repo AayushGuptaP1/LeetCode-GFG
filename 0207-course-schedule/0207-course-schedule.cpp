@@ -1,5 +1,5 @@
 class Solution {
-
+    
 public:
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) 
     {
@@ -11,7 +11,7 @@ public:
         {
             graph[e[1]].push_back(e[0]);
             inDegree[e[0]]++;
-        }
+        }   
         
         int count = 0;
         
@@ -23,6 +23,7 @@ public:
                 ++count;                
             }                               
         }
+        
         while(q.empty()==false)
         {
             int temp = q.front();
