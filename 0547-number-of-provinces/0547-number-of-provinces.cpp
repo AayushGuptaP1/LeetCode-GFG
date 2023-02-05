@@ -30,17 +30,16 @@ public:
         vector<bool>visited(n,false);
         int count = 0;
         
-        for(int i=0;i<n;++i)
-        {
+        
             for(int j=0;j<n;++j)
             {
-                if(isConnected[i][j] == 1 && visited[j] == false)
+                if(visited[j] == false)
                 {
                     count++;
                     bfs(j,isConnected,visited);
                 }
                     
-            }
+            
         }
         return count;
     }
