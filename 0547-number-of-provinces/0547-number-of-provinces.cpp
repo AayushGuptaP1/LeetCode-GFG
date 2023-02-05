@@ -1,26 +1,13 @@
 class Solution {
 private:
-    void bfs(int u, vector<vector<int>> &isConnected, vector<bool> &visited)
+    void dfs(int u, vector<vector<int>> &isConnected, vector<bool> &visited)
     {
         visited[u] = true;
         int n = isConnected.size();
-        queue<int>q;
-        q.push(u);
-        
-        while(q.empty()==false)
+        for(int i=0;i<n;++i)
         {
-            int temp = q.front();
-            q.pop();
-            
-            for(int i=0;i<n;++i)
-            {
-                if(isConnected[temp][i]==1 && visited[i] == false)
-                {
-                    visited[i] = true;
-                    q.push(i);
-                }
-                
-            }
+            if(isConnected[u][i]==1 &&visited[i]==false)
+                dfs(i,isConnected,visited);
         }
     }
 public:
@@ -36,7 +23,7 @@ public:
                 if(visited[j] == false)
                 {
                     count++;
-                    bfs(j,isConnected,visited);
+                    dfs(j,isConnected,visited);
                 }
                     
             
