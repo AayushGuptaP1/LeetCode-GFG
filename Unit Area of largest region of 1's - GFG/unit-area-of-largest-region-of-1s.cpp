@@ -12,6 +12,7 @@ class Solution
         int n = grid[0].size();
         
         queue<pair<int,int>>q;
+        visited[i][j] = true;
         q.push({i,j});
         int res = 0;
         
@@ -20,6 +21,7 @@ class Solution
             int row = q.front().first;
             int col = q.front().second;
             q.pop();
+            res++;
             
             
             
@@ -30,7 +32,7 @@ class Solution
                     if(delRow>=0 && delRow<m && delCol>=0 && delCol<n && visited[delRow][delCol]==false && grid[delRow][delCol]==1)
                     {
                         q.push({delRow,delCol});
-                        res++;
+                        // res++;
                         visited[delRow][delCol]= true;
                     }
                 }
