@@ -22,6 +22,7 @@ class Solution
             q.pop();
             
             
+            
             for(int delRow=row-1;delRow<=row+1;delRow++)
             {
                 for(int delCol=col-1;delCol<=col+1;delCol++)
