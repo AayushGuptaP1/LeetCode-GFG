@@ -21,6 +21,7 @@ class Solution
             int col = q.front().second;
             q.pop();
             
+            
             for(int delRow=row-1;delRow<=row+1;delRow++)
             {
                 for(int delCol=col-1;delCol<=col+1;delCol++)
