@@ -7,7 +7,7 @@ public:
         vector<vector<int>>graph(numCourses);
         vector<int>dep(numCourses);
         queue<int> q;
-        int count = 0;
+        
         
         for(auto &u : prerequisites)
         {
@@ -20,7 +20,7 @@ public:
             if(dep[i]==0)
             {
                 q.push(i);
-                ++count;
+                
             }
                 
         }
@@ -37,7 +37,7 @@ public:
                 if(dep[graph[temp][i]]==0)
                 {
                     q.push(graph[temp][i]);
-                    ++count;
+                    
                 }
                     
             }
