@@ -11,27 +11,28 @@ using namespace std;
 
 class Solution {
 public:
-    int helpaterp(vector<vector<int>> grid)
+    int helpaterp(vector<vector<int>> hospital)
     {
-         int m = grid.size();
-        int n = grid[0].size();
-        
-        int fresh = 0;
+        int m = hospital.size();
+        int n = hospital[0].size();
+        int uninfected = 0;
         int res = 0;
+        
         queue<pair<pair<int,int>,int>>q;
+        int traverse[5] = {-1,0,1,0,-1};
         
         for(int i=0;i<m;++i)
         {
             for(int j=0;j<n;++j)
             {
-                if(grid[i][j]==2)
-                    q.push({{i,j},0});
-                else if(grid[i][j]==1)
-                    fresh++;
+                if(hospital[i][j]==2)
+                q.push({{i,j},0});
+                else if(hospital[i][j]==1)
+                uninfected++;
             }
         }
         
-        while(q.empty()==false)
+        while(!q.empty())
         {
             int row = q.front().first.first;
             int col = q.front().first.second;
@@ -40,32 +41,20 @@ public:
             
             res = max(res,time);
             
-            if(row-1>=0 && row-1<m && grid[row-1][col]==1 )
+            for(int i=0;i<4;++i)
             {
-                q.push({{row-1,col},time+1});
-                grid[row-1][col] = 0;
-                fresh--;
-            }
-            if(row+1>=0 && row+1<m && grid[row+1][col]==1)
-            {
-                q.push({{row+1,col},time+1});
-                grid[row+1][col] = 0;
-                fresh--;
-            }
-            if(col-1>=0 && col-1<n && grid[row][col-1]==1)
-            {
-                q.push({{row,col-1},time+1});
-                grid[row][col-1] = 0;
-                fresh--;
-            }
-            if(col+1>=0 && col+1<n && grid[row][col+1]==1)
-            {
-                q.push({{row,col+1},time+1});
-                grid[row][col+1] = 0;
-                fresh--;
+                int delRow = row + traverse[i];
+                int delCol = col + traverse[i+1];
+                
+                if(delRow>=0 && delRow<m && delCol>=0 && delCol<n && hospital[delRow][delCol]==1)
+                {
+                    q.push({{delRow,delCol},time+1});
+                    hospital[delRow][delCol] = 2;
+                    uninfected--;
+                }
             }
         }
-        return fresh==0? res : -1;
+        return uninfected==0?res : -1;
     }
 };
 
