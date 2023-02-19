@@ -13,21 +13,22 @@ public:
             inDegree[e[0]]++;
         }   
         
-        int count = 0;
+        
         
         for(int i=0;i<numCourses;++i)
         {
             if(inDegree[i]==0)
             {
-                q.push(i);
-                ++count;                
+                q.push(i);               
             }                               
         }
+        int count = 0;
         
         while(q.empty()==false)
         {
             int temp = q.front();
             q.pop();
+            ++count;
             
             for(int i=0;i<graph[temp].size();++i)
             {
@@ -35,7 +36,6 @@ public:
                 if(inDegree[graph[temp][i]]==0)
                 {
                     q.push(graph[temp][i]);
-                    ++count;
                 }                     
             }
         }
