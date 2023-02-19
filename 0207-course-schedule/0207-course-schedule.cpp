@@ -10,7 +10,7 @@ public:
         for(auto &e : prerequisites)
         {
             graph[e[1]].push_back(e[0]);
-            inDegree[e[0]]++;
+            ++inDegree[e[0]];
         }   
         
         
@@ -32,7 +32,7 @@ public:
             
             for(int i=0;i<graph[temp].size();++i)
             {
-                inDegree[graph[temp][i]]--;
+                --inDegree[graph[temp][i]];
                 if(inDegree[graph[temp][i]]==0)
                 {
                     q.push(graph[temp][i]);
