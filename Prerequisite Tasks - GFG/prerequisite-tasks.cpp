@@ -38,7 +38,7 @@ public:
 	           q.push(x);
 	       }
 	   }
-	   return tasks==N? true : false;
+	   return tasks==N;
 	   
 	   
 	}
