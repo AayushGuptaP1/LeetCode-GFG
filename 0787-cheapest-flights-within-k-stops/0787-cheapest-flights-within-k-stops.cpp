@@ -16,9 +16,10 @@ public:
         queue<pair<int,int>>pq;
         pq.push({0,src});
         
-        while(!pq.empty() && stop<=k)
+        while(!pq.empty()  )
         {
-            
+            if(stop>k)
+                break;
             int size = pq.size();
             for(int i=0;i<size;++i)
             {
