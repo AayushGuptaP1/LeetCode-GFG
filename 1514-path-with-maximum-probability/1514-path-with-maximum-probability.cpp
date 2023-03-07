@@ -3,6 +3,7 @@ public:
     double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succProb, int start, int end)
     {
         vector<vector<pair<int,double>>> graph(n);
+        vector<bool> visited(n,false);
         vector<double> probability(n,0.0);
         probability[start] = 1.0;
         
@@ -21,11 +22,14 @@ public:
             double prob = pq.top().first;
             int node = pq.top().second;
             pq.pop();
+            visited[node] = true;
             
             for(auto &x : graph[node])
             {
                 int adjNode = x.first;
                 double probWt = x.second;
+                if(visited[adjNode])
+                    continue;
                 
                 if(prob*probWt > probability[adjNode] )
                 {
