@@ -11,25 +11,26 @@
  */
 class Solution {
 public:
-    int res;
-    void smallK(TreeNode *root, int &k)
+    
+    void smallK(TreeNode *root, int &k,int &res)
     {
         if(root == NULL)
             return;
-        smallK(root->left,k);
+        smallK(root->left,k,res);
         if(--k == 0)
         {
             res = root->val;
             return;
         }
-        smallK(root->right,k);
+        smallK(root->right,k,res);
         
     }
     
     int kthSmallest(TreeNode* root, int k) 
     {
+        int res = 0;
         
-        smallK(root,k);
+        smallK(root,k,res);
         return res;
         
     }
