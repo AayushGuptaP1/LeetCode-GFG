@@ -17,7 +17,7 @@ public:
         q.push(root);
         int maxsum = INT_MIN;
         int res = 0;
-        int level = 0;
+        int level = 1;
         
         while(q.empty()==false)
         {
@@ -36,12 +36,12 @@ public:
                 if(temp->right)
                     q.push(temp->right);
             }
-            level++;
             if(sum > maxsum)
             {
                 maxsum = sum;
                 res = level;                
             }
+            level++;
         }
         return res;
     }
