@@ -5,6 +5,7 @@ public:
         vector<vector<pair<int,double>>> graph(n);
         vector<double> probability(n,0.0);
         probability[start] = 1.0;
+        
         int size = edges.size();
         
         for(int i=0;i<size;++i)
@@ -26,16 +27,14 @@ public:
                 int adjNode = x.first;
                 double probWt = x.second;
                 
-                if(prob*probWt > probability[adjNode])
+                if(prob*probWt > probability[adjNode] )
                 {
                     probability[adjNode] = prob*probWt;
                     pq.push({probability[adjNode],adjNode});
+                    
                 }
             }
         }
-        
-        if(probability[end]==2)
-            return 0;
         return probability[end];
     }
 };
