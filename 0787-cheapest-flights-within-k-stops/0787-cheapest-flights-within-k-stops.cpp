@@ -6,7 +6,7 @@ public:
         vector<int> distance(n,INT_MAX);
         distance[src] = 0;
         int stop = 0;
-        int res = INT_MAX;
+       
         
         for(auto &it : flights)
         {
