@@ -61,9 +61,13 @@ public:
         
     return first;
     }
+    
+    
     ListNode* mergeKLists(vector<ListNode*>& lists)
     {
-        if(lists.empty())return nullptr;
+        if(lists.empty())
+            return nullptr;
+        
         int n = lists.size();
         for(int i=1; i<n;++i)
         {
