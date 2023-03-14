@@ -11,33 +11,17 @@
  */
 class Solution {
 private:
-    void helper(TreeNode *root, int &sum, int &localSum)
-    {
-        if(root==NULL)
-            return;
-        
-        localSum = (localSum*10)+root->val;
-        
-        if(root->left == NULL && root->right == NULL)
-        {
-            sum += localSum;
-            localSum /= 10; 
-            return;
-        }
-        
-        helper(root->left,sum,localSum);
-        helper(root->right,sum,localSum);
-        localSum /= 10;
-        
-        
-    }
+   
 public:
-    int sumNumbers(TreeNode* root) 
+    int sumNumbers(TreeNode* root,int currSum = 0) 
     {
-        int sum = 0;
-        int localSum = 0;
-        helper(root,sum,localSum);
-        return sum;
+        if(root == NULL)
+            return 0;
+        currSum = currSum*10 + root->val;
+        
+        if(root->left== NULL && root->right == NULL)
+            return currSum;
+        return sumNumbers(root->left,currSum)+ sumNumbers(root->right,currSum);
         
     }
 };
