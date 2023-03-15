@@ -13,6 +13,8 @@ class Solution {
 public:
     bool isCompleteTree(TreeNode* root) 
     {
+        //Simple Intution
+        // NULL ke baad koi element nhi milna chahiye
         queue<TreeNode*>q;
         q.push(root);
         bool firstNULL = false;
@@ -26,6 +28,7 @@ public:
             {
                 firstNULL = true;
                 continue;
+                
             }
             else if(firstNULL)
                 return false;
