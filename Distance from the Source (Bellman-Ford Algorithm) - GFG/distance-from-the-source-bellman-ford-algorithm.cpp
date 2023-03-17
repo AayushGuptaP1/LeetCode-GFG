@@ -25,7 +25,7 @@ class Solution {
                 int v = it[1];
                 int wt = it[2];
                 
-                if(distance[u] != 1e8 && distance[u]+wt < distance[v])
+                if(distance[u]+wt < distance[v])
                     distance[v] = distance[u]+wt;
             }
         }
