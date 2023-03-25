@@ -13,7 +13,7 @@ private:
             res = min(res,edWt);
             
             //take minimum of every edWt in the graph of the component.
-            // need not to visit every edge once
+            
             // only push those nodes who are not visited but take account for the edges of every node
             
             if(visited[adjNode]==false)
