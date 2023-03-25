@@ -1,5 +1,6 @@
 class Solution {
 private:
+    
     void dfs(int source, vector<vector<pair<int,int>>> &graph, vector<bool> &visited, int &res)
     {
         visited[source] = true;
@@ -9,7 +10,11 @@ private:
             int adjNode = x.first;
             int edWt = x.second;
             
-            res = min(res,edWt); 
+            res = min(res,edWt);
+            
+            //take minimum of every edWt in the graph of the component.
+            // need not to visit every edge once
+            // only push those nodes who are not visited but take account for the edges of every node
             
             if(visited[adjNode]==false)
                 dfs(adjNode,graph,visited,res); 
