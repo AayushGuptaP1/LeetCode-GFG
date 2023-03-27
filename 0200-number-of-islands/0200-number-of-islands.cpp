@@ -5,6 +5,7 @@ private:
         
         int m = grid.size();
         int n = grid[0].size();
+        int traverse[5] = {0,-1,0,1,0};
         
         
         queue<pair<int,int>>q;
@@ -17,27 +18,18 @@ private:
             int col = q.front().second;
             q.pop();
             
-            if(row-1>=0 && row-1<m && grid[row-1][col]=='1')
+            for(int i=0;i<4;++i)
             {
-                q.push({row-1,col});
-                grid[row-1][col] = '0';
-            }
-            if(row+1>=0 && row+1<m && grid[row+1][col]=='1')
-            {
-                q.push({row+1,col});
-                grid[row+1][col] = '0';
-            }
-            if(col-1>=0 && col-1<n && grid[row][col-1]=='1')
-            {
-                q.push({row,col-1});
-                grid[row][col-1] = '0';
-            }
-            if(col+1>=0 && col+1<n && grid[row][col+1]=='1')
-            {
-                q.push({row,col+1});
-                grid[row][col+1] = '0';
-            }
+                int dRow = row + traverse[i];
+                int dCol = col + traverse[i+1];
                 
+                if(dRow>=0 && dRow<m && dCol>=0 && dCol<n && grid[dRow][dCol]=='1')
+                {
+                    q.push({dRow,dCol});
+                    grid[dRow][dCol] = '0';
+                }
+                    
+            }     
         }
     }
 public:
