@@ -1,32 +1,30 @@
 class Solution {
 private:
-    void uniqueSet(vector<int> &candidates,int index,int target,vector<int> &ans, set<vector<int>> &st)
+    void uniqueSet(vector<int> &candidates,int index,int target,vector<int> &ans,vector<vector<int>> &res)
     {
         if(target<0 || index == candidates.size())
             return;
         if(target==0)
         {
-            st.insert(ans);
+            res.push_back(ans);
+            
             return;
         }
-        uniqueSet(candidates,index+1,target,ans,st);
+        uniqueSet(candidates,index+1,target,ans,res);
         ans.push_back(candidates[index]);
-        uniqueSet(candidates,index,target-candidates[index],ans,st);
-        uniqueSet(candidates,index+1,target-candidates[index],ans,st);
+        uniqueSet(candidates,index,target-candidates[index],ans,res);
+        
         ans.pop_back();
     }
 public:
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) 
     {
-        set<vector<int>> st;
+        
         vector<vector<int>> res;
         vector<int> ans;
-        uniqueSet(candidates,0,target,ans,st);
+        uniqueSet(candidates,0,target,ans,res);
         
-        for(auto &x : st)
-        {
-            res.push_back(x);
-        }
+        
         return res;
     }
 };
