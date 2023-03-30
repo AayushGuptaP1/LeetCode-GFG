@@ -2,9 +2,7 @@ class Solution {
 private:
     void powerSet(vector<int>&nums,int index,vector<int> &current, vector<vector<int>> &ans)
     {
-        ans.push_back(current);
-        
-        
+        ans.push_back(current);                 
         for(int i=index;i<nums.size();++i)
         {
             if(i==index || nums[i] != nums[i-1])
@@ -22,8 +20,6 @@ public:
         vector<int> current;
         vector<vector<int>> ans;
         powerSet(nums,0,current,ans);
-        return ans;
-        
-        
+        return ans;  
     }
 };
