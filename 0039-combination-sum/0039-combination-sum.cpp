@@ -10,11 +10,12 @@ private:
             
             return;
         }
-        uniqueSet(candidates,index+1,target,ans,res);
+        
         ans.push_back(candidates[index]);
         uniqueSet(candidates,index,target-candidates[index],ans,res);
         
         ans.pop_back();
+        uniqueSet(candidates,index+1,target,ans,res);
     }
 public:
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) 
