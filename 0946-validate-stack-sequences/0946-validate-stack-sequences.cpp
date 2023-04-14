@@ -13,7 +13,7 @@ public:
             while(!st.empty() && st.top() == popped[j])
             {
                 st.pop();
-                j++;
+                ++j;
             }
         }
         return st.empty();
