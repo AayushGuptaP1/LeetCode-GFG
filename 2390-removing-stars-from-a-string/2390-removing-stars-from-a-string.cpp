@@ -9,7 +9,7 @@ public:
         {
             if(s[i] != '*')
                 res.push_back(s[i]);
-            else if(!res.empty())
+            else 
                 res.pop_back();
         }
         return res;
