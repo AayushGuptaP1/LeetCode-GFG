@@ -16,7 +16,7 @@ public:
                 ++j;
             }
         }
-        return st.empty();
+        return j==n;
         
     }
 };
