@@ -20,10 +20,7 @@ public:
             char c = pq.top().second;
             pq.pop();
             
-            while(length--)
-            {
-                res += c;
-            }
+            res.append(length,c);
         }
         return res;
         
