@@ -17,12 +17,9 @@ private:
             return;
         
         path.push_back(root->val);
+        
         if(root->left == NULL && root->right == NULL && targetSum == root->val)
-        {
             res.push_back(path);
-            path.pop_back();
-            return;
-        }
         
         generatePath(root->left,targetSum - root->val,path,res);
         generatePath(root->right,targetSum - root->val,path,res);
