@@ -25,6 +25,8 @@ public:
         int m = grid.size();
         int n = grid[0].size();
         
+        int start_x,start_y;
+        
         int canWalk = m*n;
         int count = 0;
         
@@ -34,17 +36,17 @@ public:
             {
                 if(grid[i][j] == -1)
                     --canWalk;
+                if(grid[i][j] == 1)
+                {
+                    start_x = i, start_y =j;
+                }
             }
         }
         
-        for(int i=0;i<m;++i)
-        {
-            for(int j=0;j<n;++j)
-            {
-                if(grid[i][j] == 1)
-                    dfs(i,j,grid,canWalk,count);
-            }
-        }
+        
+                    dfs(start_x,start_y,grid,canWalk,count);
+            
+        
         return count;
     }
 };
