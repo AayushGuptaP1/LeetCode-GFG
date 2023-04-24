@@ -2,14 +2,15 @@ class Solution {
 private:
     void uniqueSet(vector<int> &candidates,int index,int target,vector<int> &ans,vector<vector<int>> &res)
     {
-        if(target<0 || index == candidates.size())
-            return;
         if(target==0)
         {
             res.push_back(ans);
             
             return;
         }
+        if(target<0 || index == candidates.size())
+            return;
+        
         
         ans.push_back(candidates[index]);
         uniqueSet(candidates,index,target-candidates[index],ans,res);
