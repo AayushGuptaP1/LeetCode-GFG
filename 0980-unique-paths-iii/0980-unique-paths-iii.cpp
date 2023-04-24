@@ -41,11 +41,8 @@ public:
                     start_x = i, start_y =j;
                 }
             }
-        }
-        
-        
-                    dfs(start_x,start_y,grid,canWalk,count);
-            
+        }     
+        dfs(start_x,start_y,grid,canWalk,count);            
         
         return count;
     }
