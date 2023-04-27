@@ -4,15 +4,10 @@ private:
     {
         path.push_back(node);
         if(path.back() == graph.size()-1)
-        {
             ans.push_back(path);
-            path.pop_back();
-            return;
-        }
-        
-        
-        for(auto &x : graph[node])
-            dfs(x,graph,path,ans);
+        else
+            for(auto &x : graph[node])
+                dfs(x,graph,path,ans);            
         path.pop_back();
     }
 public:
