@@ -2,14 +2,15 @@ class Solution {
 public:
     int arraySign(vector<int>& nums) 
     {
-        int product  = 1;
+        int sign  = 1;
         
         for(auto &x : nums)
         {
             if(x==0)
                 return x;
-            product *= (x/abs(x));
+            else if(x<0)
+                sign = -sign;
         }
-        return product;
+        return sign;
     }
 };
