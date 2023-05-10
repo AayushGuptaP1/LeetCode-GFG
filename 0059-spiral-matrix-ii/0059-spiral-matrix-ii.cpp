@@ -25,8 +25,8 @@ public:
             } 
             --right;
             
-            if(top<=bottom)
-            {
+            
+            
                 for(int i = right;i >= left; --i)
                 {
                     matrix[bottom][i] = count;
@@ -34,17 +34,15 @@ public:
                 }
                 --bottom;
                         
-            }
-            if(left<=right)
-            {
-                for(int i = bottom;i>=top; --i)
+            
+             for(int i = bottom;i>=top; --i)
                 {
                     matrix[i][left]= count;
                     ++count;                                      
                 }
                 ++left;     
             }                    
-        }
+        
         return matrix; 
     }
 };
