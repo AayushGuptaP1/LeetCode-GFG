@@ -12,13 +12,12 @@ class Solution {
 public:
     ListNode* swapNodes(ListNode* head, int k) 
     {
-        ListNode *first = nullptr,*second = nullptr,*temp = head;
+        ListNode *first,*second = head,*temp = head;
         
         
         while(temp!= NULL)
         {
-            if(second != NULL)
-                second = second->next;
+            second = second->next;
             if(--k == 0)
             {
                 first = temp;
