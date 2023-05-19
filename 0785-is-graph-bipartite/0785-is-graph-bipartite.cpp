@@ -2,7 +2,6 @@ class Solution {
 private:
     bool bfs(int i, vector<vector<int>> &graph, vector<int> &colors)
     {
-        
         queue<int> q;
         q.push(i);
         colors[i] = 0;
@@ -25,14 +24,12 @@ private:
         }
         return true;
     }
+    
 public:
     bool isBipartite(vector<vector<int>>& graph)
     {
         int n = graph.size();
-        vector<int> colors(n,-1);
-        
-        
-        
+        vector<int> colors(n,-1);       
         
         for(int i=0;i<n;++i)
         {
@@ -40,13 +37,8 @@ public:
             {
                 if(!bfs(i,graph,colors))
                     return false;
-            }
-                
+            }                
         }
-        return true;
-        
-       
-        
-        
-    }
+        return true;  
+     }
 };
