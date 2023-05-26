@@ -1,5 +1,6 @@
 class Solution {
 
+    // two options :either take index-2 and current index or index just before 
 public:
     int rob(vector<int>& nums) 
     {
