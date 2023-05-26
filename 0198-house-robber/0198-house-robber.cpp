@@ -12,8 +12,19 @@ private:
 public:
     int rob(vector<int>& nums) 
     {
-        vector<int> dp(nums.size()+1, -1);
-        int index = nums.size()-1;
-        return maxRob(nums,index,dp);        
+        int n = nums.size();
+        vector<int> dp(n+1, -1);
+        
+        dp[0] = nums[0];
+        
+        for(int i=1;i<n;++i)
+        {
+            int even = dp[i-1];
+            int odd = 0;
+            if(i-2>=0)
+                odd = dp[i-2];
+            dp[i] = max(odd + nums[i], even);
+        }
+        return dp[n-1];       
     }
 };
