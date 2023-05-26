@@ -7,14 +7,15 @@ public:
         vector<int> dp(n+1, -1);
         
         dp[0] = nums[0];
+        int prev=0, prev2 = 0;
         
         for(int i=1;i<n;++i)
         {
-            int even = dp[i-1];
-            int odd = 0;
+            int prev = dp[i-1];
+            
             if(i-2>=0)
-                odd = dp[i-2];
-            dp[i] = max(odd + nums[i], even);
+                prev2 = dp[i-2];
+            dp[i] = max(prev2 + nums[i], prev);
         }
         return dp[n-1];       
     }
