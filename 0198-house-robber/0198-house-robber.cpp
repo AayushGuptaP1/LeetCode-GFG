@@ -12,7 +12,7 @@ public:
         
         for(int i=1;i<n;++i)
         {
-            int prev = dp[i-1];
+            prev = dp[i-1];
             
             if(i-2>=0)
                 prev2 = dp[i-2];
