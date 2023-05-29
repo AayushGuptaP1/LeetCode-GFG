@@ -15,13 +15,13 @@ private:
         {
             return 1;
         }
-        grid[i][j] = 1;
+        
         
         int left = dfs(i+1,j,grid,dp);
         int right =dfs(i,j+1,grid,dp);
         
         
-        grid[i][j] = 0;
+        
         return dp[i][j] = left+right;
         
     }
