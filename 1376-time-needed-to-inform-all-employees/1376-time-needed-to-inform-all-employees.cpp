@@ -2,12 +2,12 @@ class Solution {
 private:
     int  dfs(int node, vector<vector<int>> &graph, vector<int> &informTime)
     {
-        int res = INT_MIN;
+        int res = 0;
         
         for(auto &x : graph[node])
             res = max(dfs(x,graph,informTime),res);
         
-        return max(res,0)+informTime[node];
+        return res+informTime[node];
     }
 public:
     int numOfMinutes(int n, int headID, vector<int>& manager, vector<int>& informTime)
