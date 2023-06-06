@@ -50,9 +50,8 @@ class Solution
                 root = root->right;
             }
             else
-            {
                 root = root->left;
-            }
+            
         }
         root = temp;
         while(root != NULL)
@@ -63,10 +62,7 @@ class Solution
                 root = root->left;
             }
             else
-            {
                 root = root->right;
-            }
-            
         }
     }
 };
