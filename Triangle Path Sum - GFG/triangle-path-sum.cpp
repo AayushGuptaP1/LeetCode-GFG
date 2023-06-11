@@ -5,33 +5,24 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
   public:
-    int minimizeSum(int m, vector<vector<int>>& triangle)
+    int minimizeSum(int n, vector<vector<int>>& triangle) 
     {
+        vector<int> curr(n,0), prev(n,0);
         
-        vector<vector<int>> dp(m,vector<int>(m,0));
-        dp[0][0] = triangle[0][0];
-        int res = INT_MAX;
-        
-        for(int i=1;i<m;++i)
+        for(int i=0;i<n;++i)
         {
-            dp[i][0] = dp[i-1][0] + triangle[i][0];
-            dp[i][i] = dp[i-1][i-1] + triangle[i][i];
+            prev[i] = triangle[n-1][i];
         }
         
-        for(int i=1;i<m;++i)
+        for(int i=n-2;i>=0;--i)
         {
-            for(int j=1;j<i;++j)
+            for(int j=i;j>=0;--j)
             {
-                dp[i][j] = min(dp[i-1][j-1],dp[i-1][j]) + triangle[i][j];
+                curr[j] = min(prev[j],prev[j+1]) + triangle[i][j];
             }
+            prev = curr;
         }
-        
-        for(int i=0;i<m;++i)
-        {
-            res = min(res, dp[m-1][i]);
-        }
-        return res;
-        
+        return prev[0];
     }
 };
 
