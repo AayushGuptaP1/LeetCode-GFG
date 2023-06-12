@@ -5,10 +5,7 @@ public:
         int m = matrix.size();
         int res = INT_MAX;
         
-        vector<int>curr(m,0), prev(m,0);
-        
-        // for(int i=0;i<m;++i)
-        //     prev[i] = matrix[0][i];       
+        vector<int>curr(m,0), prev(m,0);       
         
         for(int i=0;i<m;++i)
         {
@@ -19,14 +16,10 @@ public:
                 curr[j] = min(prev[j],min(leftD,rightD)) + matrix[i][j];               
             }  
             prev = curr;
-        }
-        
+        }        
         for(int i=0;i<m;++i)
             res = min(res, prev[i]);        
         
-        return res;
-        
-        
-        
+        return res;        
     }
 };
