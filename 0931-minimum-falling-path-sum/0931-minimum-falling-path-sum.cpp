@@ -7,10 +7,10 @@ public:
         
         vector<int>curr(m,0), prev(m,0);
         
-        for(int i=0;i<m;++i)
-            prev[i] = matrix[0][i];       
+        // for(int i=0;i<m;++i)
+        //     prev[i] = matrix[0][i];       
         
-        for(int i=1;i<m;++i)
+        for(int i=0;i<m;++i)
         {
             for(int j=0;j<m;++j)
             {
