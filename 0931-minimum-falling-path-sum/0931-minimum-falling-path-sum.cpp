@@ -16,9 +16,8 @@ public:
             {
                 int leftD = (j>0)? dp[i-1][j-1] : INT_MAX;
                 int rightD = (j<m-1)? dp[i-1][j+1] : INT_MAX;
-                dp[i][j] = min(dp[i-1][j],min(leftD,rightD)) + matrix[i][j];                
-            }
-                
+                dp[i][j] = min(dp[i-1][j],min(leftD,rightD)) + matrix[i][j];               
+            }                
         }
         
         for(int i=0;i<m;++i)
