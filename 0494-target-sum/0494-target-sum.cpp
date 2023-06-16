@@ -1,29 +1,20 @@
 class Solution {
 private:
-    void findCount(vector<int> &nums,int index, int target, int &count)
+    int findCount(vector<int> &nums,int index, int target)
     {
-        
-        if(target == 0 && index == nums.size())
-        {
-            count++;
-            return;
-        }
         if(index == nums.size())
-            return;
-        
-        findCount(nums,index+1,target-nums[index],count);
-        findCount(nums,index+1,target+nums[index],count);
+        {
+            if(target == 0)
+                return 1;
+            return 0;
+        }             
+        return findCount(nums,index+1,target-nums[index])+
+        findCount(nums,index+1,target+nums[index]);
             
     }
 public:
     int findTargetSumWays(vector<int>& nums, int target) 
-    {
-        int count = 0;
-        
-        findCount(nums,0,target,count);
-        return count;
-        
-        
-        
+    {        
+        return findCount(nums,0,target);      
     }
 };
