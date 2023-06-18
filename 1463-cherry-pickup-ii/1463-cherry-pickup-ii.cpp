@@ -4,16 +4,16 @@ public:
     {
         int m = grid.size();
         int n = grid[0].size();
-        vector<vector<vector<int>>> dp(m,vector<vector<int>>(n,vector<int>(n,0)));
+        vector<vector<int>> prev(n,vector<int>(n,0)), curr(n,vector<int>(n,0));
         
         for(int j1=0;j1<n;++j1)
         {
             for(int j2=0;j2<n;++j2)
             {
                 if(j1 == j2)
-                    dp[m-1][j1][j2] = grid[m-1][j1];
+                    prev[j1][j2] = grid[m-1][j1];
                 else
-                    dp[m-1][j1][j2] = grid[m-1][j1] + grid[m-1][j2];
+                    prev[j1][j2] = grid[m-1][j1] + grid[m-1][j2];
             }
         }
         
@@ -36,7 +36,7 @@ public:
                                 value = grid[i][j1] + grid[i][j2];
                             
                             if(j1+dj1>=0 && j1+dj1<n && j2+dj2>=0 && j2+dj2<n)
-                                value += dp[i+1][j1+dj1][j2+dj2];
+                                value += prev[j1+dj1][j2+dj2];
                             else
                                 value += -1e8;
                             
@@ -44,12 +44,13 @@ public:
                                 
                         }
                     }
-                    dp[i][j1][j2] = res;
+                    curr[j1][j2] = res;
                     
                 }
             }
+            prev = curr;
         }
-        return dp[0][0][n-1];
+        return curr[0][n-1];
             
         
     }
