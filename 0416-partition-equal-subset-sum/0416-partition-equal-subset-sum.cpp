@@ -8,21 +8,20 @@ public:
         if(totalSum %2  == 1) return false;
         totalSum /= 2;   
         
-        vector<vector<bool>> dp(n,vector<bool>(totalSum +1,false));
-        
-        for(int i=0;i<n;++i)
-            dp[i][0] = true;
+        vector<bool>prev(totalSum +1,false), curr(totalSum+1,true);
+        prev[0] = true;
         
         
         for(int i=1;i<n;++i)
         {
             for(int j=1;j<=totalSum;++j)
             {
-                bool notTake = dp[i-1][j];
-                bool take = (j>= nums[i]) ? dp[i-1][j-nums[i]] : false;
-                dp[i][j] = notTake| take ;
+                bool notTake = prev[j];
+                bool take = (j>= nums[i]) ? prev[j-nums[i]] : false;
+                curr[j] = notTake| take ;
             }
+            prev = curr;
         }
-        return dp[n-1][totalSum];
+        return prev[totalSum];
     }
 };
