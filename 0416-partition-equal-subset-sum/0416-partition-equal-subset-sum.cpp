@@ -3,10 +3,7 @@ public:
     bool canPartition(vector<int>& nums)
     {
         int n = nums.size();
-        int totalSum =  0;
-        
-        for(int i=0;i<n;++i)
-            totalSum += nums[i];
+        int totalSum =  accumulate(begin(nums),end(nums),0);
         
         if(totalSum %2  == 1) return false;
         totalSum /= 2;   
@@ -15,8 +12,7 @@ public:
         
         for(int i=0;i<n;++i)
             dp[i][0] = true;
-        // if(nums[0]<= totalSum)
-        // dp[0][nums[0]] = true;
+        
         
         for(int i=1;i<n;++i)
         {
