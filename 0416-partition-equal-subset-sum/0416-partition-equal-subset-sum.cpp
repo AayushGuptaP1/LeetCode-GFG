@@ -1,17 +1,4 @@
 class Solution {
-private:
-   bool subsetSum(vector<int>& nums, int index, int sum,vector<vector<int>> &dp )
-    {
-       if(sum == 0)
-           return true;
-       if(index < 0 || sum < 0)
-           return false;
-       
-       if(dp[index][sum] != -1)
-           return dp[index][sum];
-       
-       return dp[index][sum] = (subsetSum(nums,index-1,sum,dp) || subsetSum(nums,index-1,sum-nums[index],dp));
-    }
 public:
     bool canPartition(vector<int>& nums)
     {
@@ -22,9 +9,24 @@ public:
             totalSum += nums[i];
         
         if(totalSum %2  == 1) return false;
+        totalSum /= 2;   
         
-        vector<vector<int>> dp(n,vector<int>(totalSum/2 +1,-1));
-        return subsetSum(nums, n-1,totalSum/2,dp);
+        vector<vector<bool>> dp(n,vector<bool>(totalSum +1,false));
         
+        for(int i=0;i<n;++i)
+            dp[i][0] = true;
+        if(nums[0]<= totalSum)
+        dp[0][nums[0]] = true;
+        
+        for(int i=1;i<n;++i)
+        {
+            for(int j=1;j<=totalSum;++j)
+            {
+                bool notTake = dp[i-1][j];
+                bool take = (j>= nums[i]) ? dp[i-1][j-nums[i]] : false;
+                dp[i][j] = notTake| take ;
+            }
+        }
+        return dp[n-1][totalSum];
     }
 };
