@@ -15,8 +15,8 @@ public:
         
         for(int i=0;i<n;++i)
             dp[i][0] = true;
-        if(nums[0]<= totalSum)
-        dp[0][nums[0]] = true;
+        // if(nums[0]<= totalSum)
+        // dp[0][nums[0]] = true;
         
         for(int i=1;i<n;++i)
         {
