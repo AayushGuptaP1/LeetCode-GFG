@@ -3,32 +3,35 @@ public:
     long long totalCost(vector<int>& costs, int k, int candidates) 
     {
         
-        int i = 0;
-        int j = costs.size() - 1;
-        priority_queue<int, vector<int>, greater<int>> pq1;
-        priority_queue<int, vector<int>, greater<int>> pq2;
-
-        long long ans = 0;
-        while(k--){
-            while(pq1.size() < candidates && i <= j){
-                pq1.push(costs[i++]);
-            }
-            while(pq2.size() < candidates && i <= j){
-                pq2.push(costs[j--]);
-            }
-
-            int t1 = pq1.size() > 0 ? pq1.top() : INT_MAX;
-            int t2 = pq2.size() > 0 ? pq2.top() : INT_MAX;
-
-            if(t1 <= t2){
-                ans += t1;
+        long long res = 0;
+        int begin = 0;
+        int end = costs.size()-1;
+        priority_queue<int,vector<int>,greater<int>> pq1;
+        priority_queue<int,vector<int>,greater<int>> pq2;  
+        
+        while(k--)
+        {
+            while(pq1.size()< candidates && begin<=end)
+               pq1.push(costs[begin++]);
+            while(pq2.size()< candidates && begin<=end)
+                pq2.push(costs[end--]);
+            
+            int top1 = pq1.size()>0? pq1.top() : INT_MAX ;
+            int top2 = pq2.size()>0? pq2.top(): INT_MAX ;
+            
+            if(top1<= top2)
+            {
+                res += top1;   
                 pq1.pop();
             }
-            else{
-                ans += t2;
+            else
+            {
+                res += top2;
                 pq2.pop();
+            
             }
         }
-        return ans;
+       
+        return res;
     }
 };
