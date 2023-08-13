@@ -5,22 +5,26 @@ using namespace std;
 
 // } Driver Code Ends
 // User function Template for C++
+int mod = 1000000007;
 class Solution {
   public:
-    long long int nthFibonacci(long long int n)
+    int nthFibonacci(int n)
     {
-        if(n<=1)
-        return n;
-        long long temp1 = 0, temp2 = 1;
-        long long res = 0;
+        int temp1 = 0, temp2 = 1;
+        int num;
+        if(n == 1)
+        return temp1;
+        if(n == 2)
+        return temp2;
         
-        for(long long i = 2; i<=n; ++i)
+        for(int i=2;i<=n;++i)
         {
-            res = temp1%1000000007 + temp2%1000000007;
-            temp1 = temp2%1000000007;
-            temp2 = res%1000000007;
+            num = (temp1 + temp2)%mod;
+            temp1 = temp2;
+            temp2 = num;
         }
-        return res%1000000007;
+        return num;
+        
     }
 };
 
@@ -29,7 +33,7 @@ int main() {
     int t;
     cin >> t;
     while (t--) {
-        long long int n;
+        int n;
         cin >> n;
         Solution ob;
         cout << ob.nthFibonacci(n) << endl;
