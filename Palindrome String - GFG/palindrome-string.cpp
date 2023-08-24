@@ -17,9 +17,9 @@ public:
 	    while(i<=j)
 	    {
 	        if(S[i++] != S[j--])
-	        return false;
+	        return 0;
 	    }
-	    return true;
+	    return 1;
 	    
 	}
 
