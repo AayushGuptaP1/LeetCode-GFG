@@ -1,22 +1,28 @@
 class Solution {
 private:
-int findWays(int n, int index, vector<int> &coins, vector<vector<int>> &dp)
+int findWays(int index, vector<int> &coins,int amount,vector<vector<int>> &dp)
 {
-    if(n<0 || index<0)
-    return 0;
+    if(amount == 0)
+        return 1;
+    if(index == 0)
+        return (amount%coins[0] == 0);
     
-    if(dp[index][n] != -1)
-    return dp[index][n];
+    if(dp[index][amount] != -1)
+        return dp[index][amount];    
     
-    if(n==0)
-    return 1;
+    int notTake = findWays(index-1,coins,amount,dp);
+    int take = 0;
+    if(amount>= coins[index])
+        take = findWays(index,coins,amount-coins[index],dp);
     
-    return   dp[index][n] =  findWays(n- coins[index],index,coins,dp)+findWays(n,index-1,coins,dp);
+    return dp[index][amount] = take+notTake;
 }
 public:
     int change(int amount, vector<int>& coins) 
     {
-        vector<vector<int>> dp(coins.size()+1,vector<int>(amount+1,-1));
-        return findWays(amount,coins.size()-1,coins,dp);
+        int n = coins.size();
+        vector<vector<int>> dp(n,vector<int>(amount+1,-1));
+        
+        return findWays(n-1,coins,amount,dp);
     }
 };
