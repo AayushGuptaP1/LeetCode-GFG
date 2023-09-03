@@ -2,8 +2,6 @@ class Solution {
 private:
 int findWays(int index, vector<int> &coins,int amount,vector<vector<int>> &dp)
 {
-    if(amount == 0)
-        return 1;
     if(index == 0)
         return (amount%coins[0] == 0);
     
