@@ -4,26 +4,29 @@ using namespace std;
 
 // } Driver Code Ends
 class Solution {
-  private:
-  long long int findWays(int n, int index, int c[], vector<vector<long long int>> &dp)
-{
-    if(n<0 || index<0)
-    return 0;
-    
-    if(dp[index][n] != -1)
-    return dp[index][n];
-    
-    if(n==0)
-    return 1;
-    
-    return   dp[index][n] =  findWays(n- c[index],index,c,dp)+findWays(n,index-1,c,dp);
-}
-
   public:
-    long long int count(int coins[], int size, int n)
+    long long int count(int coins[], int n, int amount) 
     {
-        vector<vector<long long int>> dp(size+1,vector<long long int>(n+1,-1));
-        return findWays(n,size-1,coins,dp); 
+        vector<long long int> curr(amount+1,0);
+        
+        for(int i=0;i<=amount;++i)
+            if(i%coins[0] == 0)
+                curr[i] = 1;
+        
+        for(int i=1;i<n;++i)
+        {
+            for(int j=0;j<=amount;++j)
+            {
+                long long int notTake = curr[j];
+                long long int take = 0;
+                if(j>=coins[i])
+                    take = curr[j-coins[i]];
+                
+                curr[j] = take+notTake;
+            }
+        }
+        
+        return curr[amount];
     }
 };
 
