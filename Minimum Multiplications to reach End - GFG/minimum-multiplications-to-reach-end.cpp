@@ -12,14 +12,14 @@ class Solution {
   public:
     int minimumMultiplications(vector<int>& arr, int start, int end)
     {
-        vector<int> minMult(100001,INT_MAX);
-        priority_queue<pair<int,int>,vector<pair<int,int>>, greater<pair<int,int>>>pq;
+        vector<int> minMult(100000,INT_MAX);
+        queue<pair<int,int>>pq;
         pq.push({0,start});
         
         while(!pq.empty())
         {
-            int mult = pq.top().first;
-            int num = pq.top().second;
+            int mult = pq.front().first;
+            int num = pq.front().second;
             pq.pop();
             
             if(num==end)
@@ -28,8 +28,6 @@ class Solution {
             for(auto &x : arr)
             {
                 int temp = (num*x)%100000;
-                
-                
                 if(mult+1 < minMult[temp])
                 {
                     minMult[temp] = mult+1;
@@ -41,6 +39,7 @@ class Solution {
         
     }
 };
+
 
 
 //{ Driver Code Starts.
