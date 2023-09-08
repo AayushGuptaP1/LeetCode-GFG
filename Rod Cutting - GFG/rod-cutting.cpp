@@ -12,10 +12,7 @@ class Solution{
   private:
   int findPrice(int price[], int length, int index,vector<vector<int>> &dp)
   {
-      if(length == 1)
-      return price[0];
-      if(length == 0)
-      return 0;
+      
       if(index == 0)
       return price[length-1];
       
