@@ -12,7 +12,6 @@ class Solution{
   private:
   int findPrice(int price[], int length, int index,vector<vector<int>> &dp)
   {
-      
       if(index == 0)
       return price[length-1];
       
@@ -33,6 +32,7 @@ class Solution{
         return findPrice(price,n,n-1,dp);
     }
 };
+
 
 //{ Driver Code Starts.
 
