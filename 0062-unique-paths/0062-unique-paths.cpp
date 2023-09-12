@@ -16,17 +16,16 @@ public:
 //         return (int)res; 
         
         vector<int> pre(n,1);
-        vector<int> cur(n,1);
         
         for(int i=1;i<m;++i)
         {
             for(int j=1;j<n;++j)
             {
-                cur[j] = pre[j] + cur[j-1];
+                pre[j] = pre[j] + pre[j-1];
             }
-            pre = cur;
+            
         }
-        return cur[n-1];
+        return pre[n-1];
         
         
         
