@@ -5,7 +5,7 @@ public:
         int m = word1.length();
         int n = word2.length();
         vector<int> prev(n+1,0),curr(n+1,0);
-        curr[0] = 0;
+        ;
         
         
         for(int j=0;j<=n;++j)
