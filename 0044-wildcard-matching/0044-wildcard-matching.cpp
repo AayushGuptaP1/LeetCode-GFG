@@ -36,34 +36,35 @@ public:
     {
         int m = s.length();
         int n = p.length();
-        vector<vector<bool>> dp(m+1,vector<bool>(n+1,false));        
-        dp[0][0] = true;
+        vector<bool>prev(n+1,false), curr(n+1,false);
+        prev[0] = true;
         for(int j=1;j<=n;++j)
         {
             if(p[j-1] == '*')
-                dp[0][j]= true;
+                prev[j] = true;
             else
                 break;
         }
         
-        for(int i=1;i<=m;++i)
+         for(int i=1;i<=m;++i)
         {
             for(int j=1;j<=n;++j)
                 {
                     if(s[i-1] == p[j-1] || p[j-1] == '?')
-                        dp[i][j] =  dp[i-1][j-1];
+                        curr[j] =  prev[j-1];
                     else if(p[j-1] == '*')
                     {
-                        bool take = dp[i][j-1];
-                        bool notTake = dp[i-1][j];
-                        dp[i][j] =take | notTake;
+                        bool take = curr[j-1];
+                        bool notTake = prev[j];
+                        curr[j] =take | notTake;
                     }
                     else
-                        dp[i][j] =  false;
+                        curr[j] =  false;
                 }
+                prev = curr;
         }
         
         
-        return dp[m][n];
+        return prev[n];
     }
 };
