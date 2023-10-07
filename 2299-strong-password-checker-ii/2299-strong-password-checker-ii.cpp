@@ -6,7 +6,7 @@ public:
         if(n<8)return false;
         
         bool lower = false, upper = false, digit = false, special = false;
-        int count = 0;
+        
    
         for(int i = 0;i<n; ++i)
         {
