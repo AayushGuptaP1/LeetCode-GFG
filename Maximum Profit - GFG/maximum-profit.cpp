@@ -27,11 +27,31 @@ class Solution {
         return dp[index][buy][limit] =  profit;
     }
   public:
-    int maxProfit(int k, int n, int A[])
+    int maxProfit(int k, int n, int prices[])
     {
-        vector<vector<vector<int>>> dp(n+1,vector<vector<int>>(2,vector<int>(k+1,-1)));
+        vector<vector<int>> curr(2,vector<int>(k+1,0));
         
-        return findProfit(A,1,k,0,n,dp);
+        for(int index = n-1;index>=0;--index)
+        {
+            for(int buy = 0;buy<=1;++buy)
+            {
+                for(int limit = 1;limit<=k;++limit)
+                {
+                    int profit = 0;
+                    if(buy)
+                    {
+                        profit = max(-prices[index]+curr[0][limit],curr[1][limit]);
+                    }
+                    else
+                    {
+                        profit = max(prices[index]+ curr[1][limit-1],curr[0][limit]);
+                    }
+                    curr[buy][limit] = profit;
+                }
+            }
+        }
+        
+        return curr[1][k];
     }
 };
 
