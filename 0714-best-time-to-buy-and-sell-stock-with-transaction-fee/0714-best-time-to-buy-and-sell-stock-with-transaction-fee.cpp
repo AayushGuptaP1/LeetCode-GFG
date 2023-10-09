@@ -4,14 +4,14 @@ public:
     int maxProfit(vector<int>& prices, int fee) 
     {
         int n = prices.size();
-        vector<int> curr(2,0);
+        int buy = 0, sell = 0;
         
         for(int index = n-1;index>=0;index--)
         {
-            curr[1] = max(-prices[index]+ curr[0],curr[1]);
-            curr[0] =  max(prices[index]-fee+curr[1],curr[0]);
+            buy = max(-prices[index]+ sell,buy);
+            sell =  max(prices[index]-fee+buy,sell);
         }
         
-        return curr[1];
+        return buy;
     }
 };
