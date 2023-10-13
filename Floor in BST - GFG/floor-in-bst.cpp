@@ -30,13 +30,12 @@ public:
         {
             if(temp->data > x)
             temp = temp->left;
-            else if(temp->data < x)
+            else
             {
                 res = temp->data;
                 temp = temp->right;
             }
-            else
-            return x;
+            
         }
         return res;
        
