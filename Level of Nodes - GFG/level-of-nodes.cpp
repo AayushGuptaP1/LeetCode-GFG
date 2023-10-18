@@ -10,36 +10,34 @@ class Solution
 	//Function to find the level of node X.
 	int nodeLevel(int V, vector<int> adj[], int X) 
 	{
-	   vector<bool> visited(V,false);
-	   queue<int> q;
-	   
-	   int level = 0;
-	   q.push(0);
-	   visited[0] = true;
-	   
-	   while(!q.empty())
-	   {
-	       int size = q.size();
-	       
-	       for(int i=0;i<size;++i)
-	       {
-	           int node = q.front();
-	           q.pop();
-	           if(node == X)
-	           return level;
+	    queue<int> q;
+	    vector<int> visited(V,0);
+	    q.push(0);
+	    
+	    int level = 0;
+	    
+	    while(!q.empty())
+	    {
+	        int size = q.size();
+	        
+	        for(int i=0;i<size;++i)
+	        {
+	            int node = q.front();
+	            q.pop();
+	            visited[node] = 1;
+	            if(node == X)
+	            return level;
+	            
+	            for(auto &x : adj[node])
+	            {
+	                if(visited[x] == 0)
+	                q.push(x);
+	            }
 	           
-	           for(auto &x : adj[node])
-	           {
-	               if(visited[x] == false)
-	               {
-	                   q.push(x);
-	                   visited[x] = true;
-	               }
-	           }
-	       }
-	       level++;
-	   }
-	   return -1;
+	        }
+	        level++;
+	    }
+	    return -1;
 	}
 };
 
