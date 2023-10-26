@@ -7,11 +7,14 @@ using namespace std;
 //User function template for C++
 
 class Solution{
-  private:
-  int LCPS(string &s, string &r)
-  {
-      int n = s.length();
-      vector<int>curr(n+1,0),prev(n+1,0);
+
+  public:
+    int minimumNumberOfDeletions(string s) 
+    { 
+        int n = s.length();
+        string r = s;
+        reverse(begin(r),end(r));
+        vector<int>curr(n+1,0),prev(n+1,0);
       
       for(int i=1;i<=n;++i)
       {
@@ -24,18 +27,11 @@ class Solution{
           }
           prev = curr;
       }
-      return curr[n];
-  }
-  public:
-    int minimumNumberOfDeletions(string s) 
-    { 
-        int n = s.length();
-        string r = s;
-        reverse(begin(r),end(r));
         
-        return n- LCPS(s,r);
+        return n- curr[n];
     } 
 };
+
 
 //{ Driver Code Starts.
 int main(){
