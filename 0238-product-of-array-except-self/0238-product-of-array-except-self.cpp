@@ -4,7 +4,6 @@ public:
     {
         int n = nums.size();
         vector<int> res(n,1);
-        int preProd = 1;
         int postProd = 1;
       
         
