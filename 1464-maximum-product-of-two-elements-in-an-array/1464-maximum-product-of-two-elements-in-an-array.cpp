@@ -4,8 +4,23 @@ public:
     {
         int n = nums.size();
         
-        sort(begin(nums),end(nums));
-        return (nums[n-1]-1)*(nums[n-2]-1);
+        priority_queue<int,vector<int>,greater<int>> pq(nums.begin(),nums.begin()+2);
+        
+        for(int i=2;i<n;++i)
+        {
+            if(nums[i] > pq.top())
+            {
+                pq.pop();
+                pq.push(nums[i]);
+            }
+        }
+        int res = pq.top()-1;
+        pq.pop();
+        
+        res *= pq.top()-1;
+        return res;
+        
+        
         
         
     }
