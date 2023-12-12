@@ -3,22 +3,19 @@ public:
     int maxProduct(vector<int>& nums) 
     {
         int n = nums.size();
+        int m1 = -1, m2 = -1;
         
-        priority_queue<int,vector<int>,greater<int>> pq(nums.begin(),nums.begin()+2);
-        
-        for(int i=2;i<n;++i)
+        for(int i=0;i<n;++i)
         {
-            if(nums[i] > pq.top())
+            if(nums[i] > m1)
             {
-                pq.pop();
-                pq.push(nums[i]);
+                m2 = m1;               
+                m1 = nums[i];     
             }
+            else
+                m2 = max(m2,nums[i]);
         }
-        int res = pq.top()-1;
-        pq.pop();
-        
-        res *= pq.top()-1;
-        return res;
+        return (m1-1)*(m2-1);
         
         
         
