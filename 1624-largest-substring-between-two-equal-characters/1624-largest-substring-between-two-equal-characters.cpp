@@ -8,8 +8,9 @@ public:
         
         for(int i=0;i<n;++i)
         {
-            if(v[s[i] - 'a'] != -1)
-                res = max(res, i-v[s[i]-'a']-1);
+            int find = v[s[i] - 'a'];
+            if(find != -1)
+                res = max(res, i-find-1);
             else            
             v[s[i]-'a'] = i;
         }
