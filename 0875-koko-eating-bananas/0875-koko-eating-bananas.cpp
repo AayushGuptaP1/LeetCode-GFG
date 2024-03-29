@@ -4,8 +4,11 @@ private:
     {
         int res = 0;
         for(const auto &x : piles)
+        {
             res += x/mid + (x%mid != 0);
-        
+            if(res > h)
+                return false;
+        }          
         return res<=h;        
     }
 public:
