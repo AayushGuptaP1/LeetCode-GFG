@@ -11,7 +11,7 @@ private:
 public:
     int minEatingSpeed(vector<int>& piles, int h)
     {
-        int low = 1, high = 1e9, mid;
+        int low = 1, high = *max_element(begin(piles),end(piles)), mid;
         
         while(low <  high)
         {
