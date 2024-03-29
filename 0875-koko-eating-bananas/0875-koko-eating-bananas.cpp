@@ -3,7 +3,7 @@ private:
     bool isPossible(const int mid, vector<int> & piles,const int h)
     {
         int res = 0;
-        for(auto &x : piles)
+        for(const auto &x : piles)
             res += x/mid + (x%mid != 0);
         
         return res<=h;        
