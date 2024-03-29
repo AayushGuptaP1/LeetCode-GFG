@@ -1,6 +1,6 @@
 class Solution {
 private:
-    bool isPossible(int mid, vector<int> & piles,const int h)
+    bool isPossible(const int &mid, vector<int> & piles,const int &h)
     {
         int res = 0;
         for(auto &x : piles)
