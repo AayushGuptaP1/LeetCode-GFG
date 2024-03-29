@@ -25,7 +25,7 @@ public:
         long gardenSize = bloomDay.size();
         if( gardenSize < minSize)
             return -1;
-        int low = *min_element(begin(bloomDay),end(bloomDay)), high = *max_element(begin(bloomDay),end(bloomDay)), mid;
+        int low = 0, high = 1e9, mid;
         
         while(low < high)
         {
