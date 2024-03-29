@@ -21,7 +21,7 @@ private:
 public:
     int minDays(vector<int>& bloomDay, int m, int k)
     {
-        long minSize = (long)m*(long)k;
+        long minSize = (long)m*k;
         long gardenSize = bloomDay.size();
         if( gardenSize < minSize)
             return -1;
