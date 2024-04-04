@@ -2,18 +2,15 @@ class Solution {
 public:
     int maxDepth(string s) 
     {
-        int count = 0;
-        int res = 0;
+        int count = 0, res = 0;        
         
         for(auto &x : s)
         {
             if(x == '(')
-                count++;
+                res = max(++count,res);               
             else if(x == ')')
-                count--;
-            res = max(res,count);
+                --count;            
         }
-        return res;
-        
+        return res;        
     }
 };
