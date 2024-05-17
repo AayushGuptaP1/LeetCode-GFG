@@ -18,11 +18,9 @@ public:
         root->left = removeLeafNodes(root->left, target);
         root->right = removeLeafNodes(root->right,target);
         
-        if(root->val == target && root->left == nullptr && root->right == nullptr)
-        {
+        if(root->val == target && root->left == nullptr && root->right == nullptr)        
             return nullptr;
-        }
-        return root;
-            
+        
+        return root;        
     }
 };
