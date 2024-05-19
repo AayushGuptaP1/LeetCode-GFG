@@ -16,7 +16,7 @@ public:
         
         while(back && front)
         {
-            back->next = new ListNode(__gcd(back->val,front->val),front);
+            back->next = new ListNode(gcd(back->val,front->val),front);
             back = front;
             front = front->next;
         }
