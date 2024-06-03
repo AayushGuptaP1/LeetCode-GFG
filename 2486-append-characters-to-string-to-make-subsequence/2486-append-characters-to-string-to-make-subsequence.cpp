@@ -8,9 +8,8 @@ public:
         while(i<m && j<n)
         {
             if(s[i] == t[j])
-                i++,j++;
-            else
-                i++;
+                j++;
+            i++;
         }
         return n-j;
         
