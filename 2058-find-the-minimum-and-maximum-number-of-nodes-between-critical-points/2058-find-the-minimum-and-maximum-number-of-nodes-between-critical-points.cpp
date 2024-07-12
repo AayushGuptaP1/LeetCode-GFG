@@ -32,9 +32,10 @@ public:
             ahead = ahead->next;  
             index++;
         }
-        res[1] = lastIndex-firstIndex;
+        
         if(firstIndex == lastIndex)
             return {-1,-1};
+        res[1] = lastIndex-firstIndex;
         return res;
         
     }
