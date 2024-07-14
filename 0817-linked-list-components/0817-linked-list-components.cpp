@@ -24,14 +24,11 @@ public:
                 while(temp && st.find(temp->val) != st.end())
                 {
                     temp = temp->next;                    
-                }                 
-                
+                }                    
             }
             else
             temp = temp->next;               
         }
-        return count;
-        
-        
+        return count;          
     }
 };
