@@ -15,7 +15,7 @@ private:
             if(root->right)
                 res.push_back(root->right);
             delete root;
-            return nullptr;
+            return root = nullptr;
         }
         return root;
     }
