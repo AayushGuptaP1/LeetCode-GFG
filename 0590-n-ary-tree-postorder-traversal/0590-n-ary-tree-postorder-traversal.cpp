@@ -24,20 +24,16 @@ private:
     {
         if(root == nullptr)
             return;
-        for(auto &x : root->children)
-        {
+        for(auto &x : root->children)        
             traverse(x,res);
-        }
-        res.push_back(root->val);
         
+        res.push_back(root->val);        
     }
 public:
     vector<int> postorder(Node* root)
     {
         vector<int> ans;
         traverse(root,ans);
-        return ans;
-        
-        
+        return ans;            
     }
 };
